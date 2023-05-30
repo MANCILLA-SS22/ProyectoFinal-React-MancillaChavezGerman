@@ -1,25 +1,21 @@
-/* export function ItemListContainer(res){ //Exportar nombrado
-    const {x, z} = res;
-    return(
-        <>
-            <h1>Aca van los productos</h1>
-            <h3>Hola {x}</h3>
-            <h4>MI edad es {z}</h4>
-        </>
-    )
-    
-} */
+import { useState, useEffect } from "react";
+import ItemList from "./ItemList";
 
-import Counter from "../../common/counter/Counter";
+function ItemListContainer( {res} ){
 
-export function ItemListContainer({nombre,edad}){ //Exportar nombrado
-    return(
-        <>
-            <h1>Aca van los productos</h1>
-            <h3>Hola {nombre}</h3>
-            <h4>MI edad es {edad}</h4>
-            <Counter/>
-        </>
-    )
-    
+    const [contador, setContador] = useState(0);
+    console.log("El componente se actualiza")
+
+    useEffect( ()=> {
+        console.log("Se hace la peticion a la API");
+    }, []) 
+
+    useEffect( ()=> {
+        console.log("Me ejecuto de forma condicional");
+    }, [contador, res])
+
+    return <ItemList conta={contador} setConta={setContador} />
+
 }
+
+export default ItemListContainer
