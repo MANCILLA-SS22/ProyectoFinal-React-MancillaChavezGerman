@@ -1,10 +1,25 @@
-const ItemList = ( {conta, setConta} ) => {
+import ProductCard from "../../common/productCard/ProductCard";
+import "./ItemListContainer.css"
+
+function ItemList ( {Items} ){
   return (
-    <>
-        <h1>Aca van los productos</h1>
-        <button onClick={ () => setConta(conta + 1)}>Sumador</button>
-    </>
+    <div className="card-container">
+      {
+        Items.map((evento) => {
+          return <ProductCard key={evento.id} evento={evento}/>;
+        })
+      }
+    </div>
   )
 }
 
 export default ItemList
+
+/* {Items.length > 0 ? (
+          <div>
+            <h2>{Items[0].title}</h2>
+            <img src={Items[0].img} alt="" />
+            <h3>{Items[0].price}</h3>
+          </div> 
+          ) : <h1>Cargando...</h1>
+      } */
