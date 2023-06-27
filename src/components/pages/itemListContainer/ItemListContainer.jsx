@@ -2,8 +2,15 @@ import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
+import { ScaleLoader } from "react-spinners";
 
 function ItemListContainer(){
+
+    /* const override = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "red",
+    }; */
 
     const [items, setItems] = useState([]); //console.log(items);
     const {categoryName} = useParams(); //console.log(categoryName);
@@ -16,7 +23,7 @@ function ItemListContainer(){
         const tarea = new Promise((resolve) => {
             setTimeout(() => {
                 resolve(categoryName ? productosFiltrados : products);
-            }, 1);
+            }, 500);
         });
 
         // Metodo 1: .then() y .catch()
@@ -37,7 +44,28 @@ function ItemListContainer(){
 
     }, [categoryName]); 
 
+    //condicional con return termprano
+    if (items.length === 0) {
+        return (
+        <div style={{width: "100%",height: "90vh",display: "flex",justifyContent: "center",alignItems: "center"}}>
+            <ScaleLoader color="steelblue" width={40} height={111}  />
+            {/* <h1>Espere por favor...</h1> */}
+        </div>
+        )
+    }
+
+    //Return de sin usar spinner
     return <ItemList Items={items}/>;
+
+    /* return(
+        <div>
+            {
+                items.length > 0 ? <ItemList Items={items}/> : (<ClipLoader cssOverride={override} color="#36d7b7" />)
+            }
+        </div>
+    ) */
+
+    
 }
 
 export default ItemListContainer

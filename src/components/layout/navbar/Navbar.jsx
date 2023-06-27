@@ -1,23 +1,33 @@
 //Forma dinamica
 import { Badge } from "@mui/material";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import styles from "./Navbar.css";
+
 import { Link } from "react-router-dom";
 import { menuNavigate } from "../../../routes/MenuNavigate";
-import styles from "../navbar/Navbar.css";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 
 function Navbar() {
+  const {getTotalItems } = useContext(CartContext);
+  let totalItems = getTotalItems();
+
   return (
     <>
       <div className={styles.containerNavbar}>
         <Link to="/">Comision-43240</Link>
         <ul className={styles.categories}>
           {
-              menuNavigate.map(({ id, path, title }) => <Link key={id} to={path}> {title} </Link> )
+            menuNavigate.map(({ id, path, title }) => (
+              <Link key={id} to={path}>
+                {title}
+              </Link>
+            ))
           }
         </ul>
 
         <Link to="/carrito">
-          <Badge badgeContent={4} color="primary">
+          <Badge badgeContent={totalItems} showZero color="primary">
             <BsFillCartCheckFill size="30px" />
           </Badge>
         </Link>

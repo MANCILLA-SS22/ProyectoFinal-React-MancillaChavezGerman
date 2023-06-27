@@ -5,10 +5,10 @@ export const CartContext = createContext(); // Creamos el contexto
 /*  A este componente le llegan las props (children) que hacen referencia alos hijos del contexto. Ahora, el proveedor del contexto, a los hijos que pertenecen al CartContextProvider, les tiene que dar acceso en el punto donde esta el return.*/
 function CartContextProvider( {children} ){ // Creamos el componente provedor del contexto  
     
-    const [cart, setCart] = useState( [] );
+    const [cart, setCart] = useState( JSON.parse(localStorage.getItem("cart")) || [] ); //console.log(cart);
 
     function addToCart( newProduct ){// newProduct es el objeto del elemento que se agrego al carrito, es decir, uno de los 4 tenis existentes
-        console.log(newProduct);
+        //console.log(newProduct);
         let exist = isInCart(newProduct.id); // Preguntamos si existe o si ya esta almacenado en el carrito.
         if (exist) {
             let newArray = cart.map((product) => {  //Este map devuelve un arreglo un nuevo arreglo con la misma longitud. En cart, se encuentran los objetos de los productos agregados al carrito, por lo que, con el map, hacemos la iteracion para verificar los id contenidos en cada objeto y compararlos con el objeto recien agregado.
@@ -21,10 +21,12 @@ function CartContextProvider( {children} ){ // Creamos el componente provedor de
                     return product;                 //Sino, entonces retorna el mismo producto que se tenia al principio (esto porque map si o si, debe retornar algo)
                 }
             })
-            setCart([newArray]); //Dependiendo de si entro al if o al else, con el setCart[newArray], mandamos ese nuevo array al useState y de esa manera tenemos un nuevo arreglo
-            
+            setCart(newArray); //Dependiendo de si entro al if o al else, con el setCart(newArray), mandamos ese nuevo array al useState y de esa manera tenemos un nuevo arreglo
+            localStorage.setItem("cart", JSON.stringify([newArray]))
+        
         }else{                              //Si no existe, dejamos todo lo que tenia el carrito (sin modificarlo) y le agregamos el nuevo producto
             setCart([...cart, newProduct]); //...cart se lee como: Primero mantengo todo lo que tiene mi arreglo, y despues le damos el nuevo producto (seteamos) para no perder los objetos anteriores.
+            localStorage.setItem("cart", JSON.stringify([...cart, newProduct]))
         }
     }
 
@@ -37,6 +39,7 @@ function CartContextProvider( {children} ){ // Creamos el componente provedor de
 
     function clearCart(){
         setCart( [] );
+        localStorage.removeItem("cart")
     }
 
     function removeById(id){
@@ -44,6 +47,7 @@ function CartContextProvider( {children} ){ // Creamos el componente provedor de
             return evento.id !== id; //Cuando queremos eliminar un elemento del carrito, verificamos su id primero. En esta linea, se dice que, todos los elementos que tengan un id distinto al elemento que se quiere eliminar, se van a filtrar y se mostrara un nuevo array.
         });
         setCart(newArray); //Con el setCart, seteamos (actualizamos) ese arreglo.
+        localStorage.setItem("cart", JSON.stringify(newArray));
     }
 
     function getTotalQuantityById(id){
@@ -53,13 +57,29 @@ function CartContextProvider( {children} ){ // Creamos el componente provedor de
         return producto?.quantity; //Se utiliza el optional changing (?.) porque, no podemos pedir algo undefined, o de lo contrario tendremos un error. Entonces, lo que hace este operador, es que verifica si existe una cantidad. Si la hay, entonces retorna ese valor, pero si es undefined, simplemente retorna undefined, pero "producto" NO solicita ese undefined.
     }
 
+    function getTotalItems(){
+        let total = cart.reduce((acc, ele) => {
+            return acc + ele.quantity;
+        }, 0)
+        return total;
+    }
+
+    function getTotalPrice(){
+        let total = cart.reduce((acc, ele) => {
+            return acc + (ele.quantity * ele.price)
+        },0);
+        return total;
+    }
+
     //Si queremos consumir cart en otro lado, todo lo que queramos consumir en los hijos, lo debemos poner en data, lo cual se pasara como tipo value en el return.
     let data = {
         cart: cart,
         addToCart: addToCart,
         clearCart: clearCart,
         removeById:removeById,
-        getTotalQuantityById:getTotalQuantityById
+        getTotalQuantityById:getTotalQuantityById,
+        getTotalItems:getTotalItems,
+        getTotalPrice:getTotalPrice
     };
 
     // Tod0s los elementos contenidos en el proveedor de contexto los necesitamos pasar como valor en el CartContext.Provider

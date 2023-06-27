@@ -1,5 +1,6 @@
 //Elemento hijo de productDetail
 import { useCount } from "./hooks/useCount";
+import { Button } from "@mui/material";
 
 export function ItemCount({initial=1, stock, onAdd}) {
 //                                                           1      5
@@ -7,12 +8,12 @@ export function ItemCount({initial=1, stock, onAdd}) {
 
     return (
         <>
-            <div className="count--container">
-                <button onClick={decrement}><h1>-</h1></button>
-                <span>{count}</span>
-                <button onClick={increment}><h1>+</h1></button>
+            <div style={{ marginBottom: "20px", display: "flex", gap: "30px" }}>
+                <Button variant="contained" disabled={stock < 1 ? true : false} onClick={decrement}>-</Button>
+                <h2>{count}</h2>
+                <Button variant="contained" onClick={increment}>+</Button>
                 
-                <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+                <Button variant="contained" onClick={() => onAdd(count)}>Agregar al carrito</Button>
             </div>
             <button onClick={reset}><h1>Reset</h1></button>
         </>

@@ -2,7 +2,6 @@ import { Button, TextField } from "@mui/material"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useFormik } from "formik"
 import  *as Yup from "yup"
-import "./FormFormik.css"
 
 function FormFormik() {
 
