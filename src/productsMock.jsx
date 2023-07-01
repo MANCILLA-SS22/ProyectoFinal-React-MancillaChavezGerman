@@ -36,4 +36,4 @@ export const products = [
         category: "urbanas",
         img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
     }
-]
+];

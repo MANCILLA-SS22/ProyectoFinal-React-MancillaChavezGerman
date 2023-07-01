@@ -52,7 +52,7 @@ function CartContextProvider( {children} ){ // Creamos el componente provedor de
 
     function getTotalQuantityById(id){
         let producto = cart.find((evento) => { //Usamos el find para poder identificar el elemento con base en el id. Este retorna unicamente un objeto.
-            return evento.id === Number(id);
+            return evento.id === id; //Si tuvieramos que obtener un numero, entonces quedaria como: return evento.id === Number(id);  Esto porque ahora con firebase, estariamos obeniento un id pero con formato STRING. Si estuvieramos con el productsMok, ahi si quedaria como un numero.
         })
         return producto?.quantity; //Se utiliza el optional changing (?.) porque, no podemos pedir algo undefined, o de lo contrario tendremos un error. Entonces, lo que hace este operador, es que verifica si existe una cantidad. Si la hay, entonces retorna ese valor, pero si es undefined, simplemente retorna undefined, pero "producto" NO solicita ese undefined.
     }

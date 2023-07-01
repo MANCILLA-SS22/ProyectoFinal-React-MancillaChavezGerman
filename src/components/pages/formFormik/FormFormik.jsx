@@ -20,8 +20,7 @@ function FormFormik() {
 
         validateOnChange:false,
         
-        validationSchema: Yup.object({ //Este metodo .object crea un esquema de validacion que sera un objeto. Dentro de cada imput, es donde se valida cada objeto.
-            //Lo que se encuentra del lado derecho del min y el max, representa un condificonal que, si no cumple con el numero requerido, entonces muestra el mensage (STRING).
+        validationSchema: Yup.object({ //Este metodo .object crea un esquema de validacion que sera un objeto. Dentro de cada imput, es donde se valida cada objeto. Lo que se encuentra del lado derecho del min y el max, representa un condificonal que, si no cumple con el numero requerido, entonces muestra el mensage (STRING).
             nombre: Yup.string().required("Este campo es invalido").min(3, "min").max(16, "max"),
             email: Yup.string().email("No corresponde a un email valido").required("Es obligatorio"),
             password: Yup.string().required("Requerido").matches(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,15}$/, {

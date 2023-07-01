@@ -2,7 +2,6 @@ import { useState } from "react";
 
 function Form() {
     const [userData, setUserData] = useState({Name: "",lastName:""}); //console.log(userData);
-    //console.log(userData);
 
     function handleSubmit(evento){ //console.log(evento);
         evento.preventDefault();
@@ -20,8 +19,7 @@ function Form() {
     }
 
     function handleChange(evento){
-        console.log([evento.target.name], " --- ", evento.target.name);
-        setUserData({...userData, [evento.target.name]: evento.target.value}); 
+        setUserData({...userData, [evento.target.name]: evento.target.value});   console.log([evento.target.name], " --- ", evento.target.name);
     }   
 /*  Usamos corchetes en evento.target.name porque lo que estamos reciviento es un STRING. Por lo cual, para acceder a un elemento string de un objeto, no podemos hacer 
     algo como esto: evento.target.name. Para ello, debemos usar todo eso dentro de unos corchetes para obtener el string dentro de los "", y de esa manera, poder apceder a la clave

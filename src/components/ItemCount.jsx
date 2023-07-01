@@ -15,7 +15,7 @@ export function ItemCount({initial=1, stock, onAdd}) {
                 
                 <Button variant="contained" onClick={() => onAdd(count)}>Agregar al carrito</Button>
             </div>
-            <button onClick={reset}><h1>Reset</h1></button>
+            <Button variant="contained" onClick={reset}>Reset</Button>
         </>
     )
 }
