@@ -2,6 +2,7 @@ import Users from "../components/Users";
 import Form from "../components/pages/Form/Form";
 import CartContainer from "../components/pages/cart/CartContainer"
 import CheckoutContainer from "../components/pages/checkout/CheckoutContainer";
+import FirebaseAuth from "../components/pages/firebaseAuth/FirebaseAuth";
 import FormFormik from "../components/pages/formFormik/FormFormik";
 import ItemListContainer from "../components/pages/itemListContainer/ItemListContainer"
 import ProductDetailContainer from "../components/pages/productDetail/ProductDetailContainer"
@@ -46,7 +47,14 @@ export const MenuRoutes = [
         id: "checkout",
         path:"/checkout",
         Element: CheckoutContainer
+    },
+    {
+        id: "firebase-auth",
+        path:"/firebase-auth",
+        Element: FirebaseAuth
     }
+
+    //falta crear una ruta login y registro 
 ];
 /* El nombre del id puede ser cualquiera. Element debe siempre iniciar con mayuscula porque cuando se renderizan como HTML, estos siempre deben tener esta propiedad. Es decir, 
 en el App, cuando estamos mapeando en la linea 13 y tenemos element={<Element/>}, es bien sabido que lo que esta dentro de los </> es una etiqueta HTML, las cuales siempre
