@@ -35,7 +35,7 @@ function CheckoutContainer() {
 
       //El updateDoc primero necesita la referencia a un documento, y despues necesita el nuevo objeto con el que yo quiero actualizar. 
       //El metodo doc necesita la referencia de la base de datos, despues una referencia a una coleccion, despues lo que se quiere actualizar (en este caso el id).
-      cart.foreach((evento) => {
+      cart.map((evento) => {
         updateDoc( doc(db, "products", evento.id), {stock: evento.stock - evento.quantity} ); 
       });
 
@@ -49,7 +49,7 @@ function CheckoutContainer() {
       phone: Yup.string().required("Este campo es obligatorio").min(10, "El numero no es adecuado")
     }),
     
-  }); //Del lado de las llaves, van las cosas que use useFormik devielva, mientras que del lado derecho, pasamos dentro de los parentesis la configuracion de todo lo que el necesita.
+  }); //Del lado de las llaves, van las cosas que use useFormik devuelva, mientras que del lado derecho, pasamos dentro de los parentesis la configuracion de todo lo que el necesita.
     
     // console.log(errors)
 

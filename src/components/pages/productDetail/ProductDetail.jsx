@@ -1,5 +1,5 @@
 //Elemento hijo / Elemento padre de ItemCount
-import { ItemCount } from "../../itemCount";
+import { ItemCount } from "../../ItemCount";
 import styles from "./ProductDetail.css";
 function ProductDetail({productSelected, onAdd, cantidad}){ //console.log(productSelected);
 

@@ -17,12 +17,12 @@ import { getFirestore } from "firebase/firestore"
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth"
 
 const firebaseConfig = { //Es la configuracion que Firebase nos proporciona una vez que creamos las colecciones y productos
-    apiKey: "AIzaSyCIe2hAAtRbnJLfEczSpQXQLoP8nB-G5oE",
-    authDomain: "tienda-43240.firebaseapp.com",
-    projectId: "tienda-43240",
-    storageBucket: "tienda-43240.appspot.com",
-    messagingSenderId: "758411884917",
-    appId: "1:758411884917:web:115e143636c9b3c96efb3c"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROYECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING,
+    appId: import.meta.env.VITE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig); //Inicializamos la aplicacion
@@ -57,4 +57,3 @@ export async function loginWithGoole(){
         console.log(error); 
     }
 }
-

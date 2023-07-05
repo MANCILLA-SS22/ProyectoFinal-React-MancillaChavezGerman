@@ -7,7 +7,7 @@ function FirebaseAuth() {
 
     let infoInput = {
             email: "german_mancilla22@hotmail.com",  // email:"xxcodigo.rojoxx@gmail.com",
-            password: "ellgerhmman"                  // password:"barret50"
+            password: "ellgerhmman"
         }
 
     async function handleSumbmit(){
