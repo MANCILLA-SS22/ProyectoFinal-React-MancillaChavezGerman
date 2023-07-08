@@ -16,7 +16,7 @@ function Navbar() {
       <div className='navegacion p-3 mb-5 container-fluid d-flex justify-content-evenly align-items-center'>
 
       <a href="/" className='text-white text-decoration-none d-flex justify-content-center'>
-        <img style={{width:"60px", marginLeft:"6px"}} src={"../imgs/target.png"} alt="target" />
+        <img style={{width:"60px", marginLeft:"6px"}} src={"/imgs/target.png"} alt="target" />
         <h2 className='m-2 align-self-center'>ImpactGuns</h2>
       </a>
 
