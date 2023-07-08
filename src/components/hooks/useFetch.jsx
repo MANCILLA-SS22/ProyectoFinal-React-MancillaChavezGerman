@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 
 export function useFetch(initial, endpoint) {
-
     const [data, setData] = useState(initial)
-
     useEffect(() => {
         const data = fetch(endpoint)
         data

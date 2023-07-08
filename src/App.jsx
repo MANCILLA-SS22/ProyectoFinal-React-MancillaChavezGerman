@@ -1,5 +1,7 @@
 //Enrutado con react router (con metodo dinamica)
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import Layout from './components/layout/Layout';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {MenuRoutes} from "./routes/MenuRoutes"

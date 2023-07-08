@@ -20,5 +20,6 @@ export function useCount(initial, stock, minimo) {
         function reset(){
             setCount(initial)
         }
+        
     return {count, decrement, increment, reset}
 }

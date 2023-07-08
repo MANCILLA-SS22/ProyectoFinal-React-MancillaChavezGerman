@@ -1,8 +1,8 @@
 // Codigo utilziando Firebase y modificando el useEffect()
 // Elemento padre de productDetail
+import ProductDetail from "./ProductDetail"
 import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import ProductDetail from "./ProductDetail"
 import { CartContext } from "../../../context/CartContext";
 import Swal from 'sweetalert2';
 import { db } from "../../../firebaseConfig";  

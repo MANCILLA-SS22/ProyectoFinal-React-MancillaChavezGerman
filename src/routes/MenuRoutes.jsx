@@ -1,4 +1,4 @@
-import Users from "../components/Users";
+import Users from "../components/pages/fetchingConHook/Users";
 import Form from "../components/pages/Form/Form";
 import CartContainer from "../components/pages/cart/CartContainer"
 import CheckoutContainer from "../components/pages/checkout/CheckoutContainer";
@@ -6,12 +6,18 @@ import FirebaseAuth from "../components/pages/firebaseAuth/FirebaseAuth";
 import FormFormik from "../components/pages/formFormik/FormFormik";
 import ItemListContainer from "../components/pages/itemListContainer/ItemListContainer"
 import ProductDetailContainer from "../components/pages/productDetail/ProductDetailContainer"
+import Home from "../components/pages/home/Home";
 
 export const MenuRoutes = [
     {
         id: "home",
         path:"/",
-        Element: ItemListContainer 
+        Element: Home
+    },
+    {
+        id: "products",
+        path:"/products",
+        Element: ItemListContainer
     },
     {
         id: "categories",
