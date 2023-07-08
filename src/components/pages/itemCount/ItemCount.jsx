@@ -1,12 +1,12 @@
 //Elemento hijo de productDetail
+import "../itemCount/ItemCount.css"
+import { useCount } from "../../hooks/useCount";
 import { useState } from "react";
-import { useCount } from "./hooks/useCount";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export function ItemCount({initial=1, stock, onAdd}) {
 //                                                           1      5
-    const {count, decrement, increment, reset} = useCount(initial,stock, 1)
+    const {count, decrement, increment, } = useCount(initial,stock, 1)
     const [isAdd, setIsAd] = useState(false);
     const navigate = useNavigate();
 
@@ -15,18 +15,17 @@ export function ItemCount({initial=1, stock, onAdd}) {
                 
                 {
                     !isAdd && (
-                        <>
-                            <Button variant="contained" disabled={stock < 1 ? true : false} onClick={decrement}>-</Button>
-                            <h2>{count}</h2>
-                            <Button variant="contained" onClick={increment}>+</Button>
-                            <Button variant="contained" onClick={reset}>Reset</Button>
-                        </>
+                        <div className="count--container">
+                            <button className="sum_res" onClick={decrement} disabled={stock < 1 ? true : false}>-</button>
+                            <span className="cantidad">{count}</span>
+                            <button className="sum_res" onClick={increment}>+</button>
+                        </div>
                     )
                 }
 
                 {
-                    isAdd ? <Button variant="contained" onClick={ () => {navigate("/cart")}}>Ir al carrito</Button> :
-                            <Button variant="contained" onClick={ () => {onAdd(count), setIsAd(true)} }>Agregar al carrito</Button>
+                    isAdd ? <button className="btnx btn-light" onClick={ () => {navigate("/cart")}}>Ir al carrito</button> :
+                            <button className="btnx btn-light" onClick={ () => {onAdd(count), setIsAd(true)} }>Agregar al carrito</button>
                 }
 
 

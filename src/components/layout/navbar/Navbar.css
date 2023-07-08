@@ -1,4 +1,28 @@
-.containerNavbar {
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Montserrat:wght@300;400;500;600;700;800&family=Stardos+Stencil&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, a,  ul{
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Stardos Stencil', cursive;
+}
+
+a{
+  font-size: 25px;
+}
+
+.navegacion{
+background: #000000; 
+background: -webkit-linear-gradient(to right, #434343, #000000);  
+background: linear-gradient(to right, #434343, #000000);
+}
+
+/* .containerNavbar {
     width: 100%;
     height: 10vh;
     display: flex;
@@ -32,4 +56,4 @@
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-  }
+  } */

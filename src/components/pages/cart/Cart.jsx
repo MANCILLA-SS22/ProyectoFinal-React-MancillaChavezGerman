@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./Cart.css";
-const Cart = ({ cart, limpiar, removeById, total }) => {
+function Cart ({ cart, limpiar, removeById, total }) {
   return (
     <div>
       <div className="cart-container">
@@ -13,7 +13,7 @@ const Cart = ({ cart, limpiar, removeById, total }) => {
                 <img src={item.img} alt="" />
                 <div className="cart-item-info">
                   <h2>{item.name}</h2>
-                  <h2>${item.price}.-</h2>
+                  <h2>${item.priceNow}.-</h2>
                   <h2>Unidades: {item.quantity}</h2>
                 </div>
                 <Button variant="contained" onClick={() => removeById(item.id)}>
@@ -26,7 +26,7 @@ const Cart = ({ cart, limpiar, removeById, total }) => {
         <div className="cart-info">
           <h2>Descripcion del carrito:</h2>
           <h3>Cantidad de productos: </h3>
-          <h3>Precio total: {total}</h3>
+          <h3>Precio total: {total.toFixed(3)}</h3>
           <h3>Descuento: </h3>
           <h3>Precio final: </h3>
 
@@ -47,11 +47,11 @@ const Cart = ({ cart, limpiar, removeById, total }) => {
             )
           }
 
-          <h1>El total del carrito es ${total}</h1>
+          <h1>El total del carrito es ${total.toFixed(3)}</h1>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Cart;

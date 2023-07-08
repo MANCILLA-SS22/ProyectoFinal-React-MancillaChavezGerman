@@ -6,9 +6,9 @@ function Layout() {
   return (
     <div>
         <Navbar />
-        <div style={{minHeight: "100vh"}}>
+        {/* <div style={{minHeight: "100vh"}}> */}
           <Outlet />
-        </div>
+        {/* </div> */}
         <Footer />
     </div>
   )

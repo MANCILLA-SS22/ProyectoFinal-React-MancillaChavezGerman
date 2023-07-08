@@ -66,7 +66,7 @@ function CartContextProvider( {children} ){ // Creamos el componente provedor de
 
     function getTotalPrice(){
         let total = cart.reduce((acc, ele) => {
-            return acc + (ele.quantity * ele.price)
+            return acc + (ele.quantity * (ele.priceNow))
         },0);
         return total;
     }

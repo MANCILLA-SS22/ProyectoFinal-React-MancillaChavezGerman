@@ -1,8 +1,7 @@
 //Forma dinamica
+import "../navbar/Navbar.css"
 import { Badge } from "@mui/material";
 import { BsFillCartCheckFill } from "react-icons/bs";
-import styles from "./Navbar.css";
-
 import { Link } from "react-router-dom";
 import { menuNavigate } from "../../../routes/MenuNavigate";
 import { useContext } from "react";
@@ -14,24 +13,84 @@ function Navbar() {
 
   return (
     <>
-      <div className={styles.containerNavbar}>
-        <Link to="/">Comision-43240</Link>
-        <ul className={styles.categories}>
-          {
-            menuNavigate.map(({ id, path, title }) => (
-              <Link key={id} to={path}>
-                {title}
-              </Link>
-            ))
-          }
-        </ul>
+      <div className='navegacion p-3 mb-5 container-fluid d-flex justify-content-evenly align-items-center'>
 
-        <Link to="/carrito">
-          <Badge badgeContent={totalItems} showZero color="primary">
-            <BsFillCartCheckFill size="30px" />
-          </Badge>
-        </Link>
-      </div>
+      <a href="/" className='text-white text-decoration-none d-flex justify-content-center'>
+        <img style={{width:"60px", marginLeft:"6px"}} src={"../imgs/target.png"} alt="target" />
+        <h2 className='m-2 align-self-center'>ImpactGuns</h2>
+      </a>
+
+      <ul className="d-flex flex-row justify-content-around align-items-center list-unstyled">
+        
+        <li className="me-4 dropdown">
+          <a className="text-white text-decoration-none dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Guns
+          </a>
+
+          <ul className="dropdown-menu">
+            <li>
+              {//el id y el path deben ser iguales para que al usar filer en ItemListContainer, verifique si ambos son iguales y entonces hacer el filtrado. Tambien, debido a que vamos a desestructurar un objeto, los nombres no deben ser diferentes.
+                menuNavigate.map(( {id, path, title} ) => { //Como estamos usando un array de objetos, entonces vamos a tener que desestructurar los datos que estan contenidos en este array. 
+                  return (
+                    <Link className="dropdown-item" key={id} to={path}>
+                      {title} <hr className="dropdown-divider"/>
+                    </Link>
+                  )
+                })
+              }
+            </li>
+          </ul>
+        </li>
+
+        <li className="me-4 dropdown">
+          <a className="text-white text-decoration-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ammo
+          </a>
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item" href="#">Rifle Ammo</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Shotgun Ammo</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Assault Rifle Ammo</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Sub Machine Gun Ammo</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Handgun Ammo</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Rimfire Ammo</a></li>
+          </ul>
+        </li>
+
+        <li className="me-4 dropdown">
+          <a className="text-white text-decoration-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Accessories
+          </a>
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item" href="#">Magazines</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Holsters</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Optics & Sights</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Lasers</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Lights</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Reloading</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Bipods & Tripods</a><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Snap Caps</a><hr className="dropdown-divider"/></li>
+          </ul>
+        </li>
+
+        <li>
+          <a className="text-white text-decoration-none" href="#" role="button"  aria-expanded="false">
+            About us
+          </a>
+        </li>
+        
+      </ul>
+
+        <div className="me-4">
+          <Link to="/carrito">
+            <Badge badgeContent={totalItems} showZero color="primary">
+              <BsFillCartCheckFill size="30px" />
+            </Badge>
+          </Link>
+        </div>
+
+      
+
+    </div>
     </>
   );
 }
