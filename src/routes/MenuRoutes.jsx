@@ -35,6 +35,11 @@ export const MenuRoutes = [
         Element: CartContainer
     },
     {
+        id: "checkout",
+        path:"/checkout",
+        Element: CheckoutContainer
+    },
+    {
         id: "users",
         path:"/users",
         Element: Users
@@ -48,11 +53,6 @@ export const MenuRoutes = [
         id: "formik",
         path:"/formik",
         Element: FormFormik
-    },
-    {
-        id: "checkout",
-        path:"/checkout",
-        Element: CheckoutContainer
     },
     {
         id: "firebase-auth",

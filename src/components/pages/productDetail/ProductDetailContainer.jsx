@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 import Swal from 'sweetalert2';
+import { MoonLoader } from "react-spinners";
 import { db } from "../../../firebaseConfig";  
 import {collection, getDoc, doc } from "firebase/firestore"
 
@@ -33,19 +34,26 @@ function ProductDetailContainer(){
   useEffect(() => {
     let itemCollection = collection(db, "products");
     let refDoc = doc(itemCollection, num_id); // con doc() necesitamos dos parametros. El primero es la ubicacion de donde voy a sacar el documento (en este caso, itemCollection), y el segundo es para indicar que es lo que quiero acceder (en este caso, el id).
-    getDoc(refDoc)
-    .then((res) => {
-      setProductSelected({
-        ...res.data(), 
-        id: res.id //El id del res.id pertenece al que se encuentra en firebase. Mientras que el num_id es el que se recupera de la barra de navegacion con el useParams().
+    
+    setTimeout(() => {
+      getDoc(refDoc)
+      .then((res) => {
+        setProductSelected({
+          ...res.data(), 
+          id: res.id //El id del res.id pertenece al que se encuentra en firebase. Mientras que el num_id es el que se recupera de la barra de navegacion con el useParams().
+        })
       })
-    })
+    }, 2000);
   }, [num_id]);
   
   return (
     <div>
       {
-        productSelected.id ? (<ProductDetail productSelected={productSelected} cantidad={cantidad} addToCart={addToCart} onAdd={onAdd}/>) : (<h1>Cargando...</h1>)
+        productSelected.id ? 
+        (<ProductDetail productSelected={productSelected} cantidad={cantidad} addToCart={addToCart} onAdd={onAdd}/>) : 
+        (<div style={{width: "100%",height: "90vh",display: "flex",justifyContent: "center",alignItems: "center"}}>
+            <MoonLoader color="rgba(0, 255, 240, 1)" width={40} height={111}  />
+        </div>)
       }     
     </div>
   )

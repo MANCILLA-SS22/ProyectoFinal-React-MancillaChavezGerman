@@ -1,22 +1,16 @@
 //Forma dinamica
 import "../navbar/Navbar.css"
-import { Badge } from "@mui/material";
-import { BsFillCartCheckFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { menuNavigate } from "../../../routes/MenuNavigate";
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
+import CartWidwet from "../../cartWidwet/CartWidwet";
 
 function Navbar() {
-  const {getTotalItems } = useContext(CartContext);
-  let totalItems = getTotalItems();
-
   return (
     <>
-      <div className='navegacion p-3 mb-5 container-fluid d-flex justify-content-evenly align-items-center'>
+      <div className='navegacion p-3 container-fluid d-flex justify-content-evenly align-items-center'>
 
       <a href="/" className='text-white text-decoration-none d-flex justify-content-center'>
-        <img style={{width:"60px", marginLeft:"6px"}} src={"/imgs/biohazard-sign.png"} alt="target" />
+        <img style={{width:"60px", marginLeft:"6px"}} src={"/imgs/biohazard-symbol.png"} alt="target" />
         <h2 className='m-2 align-self-center'>ImpactGuns</h2>
       </a>
 
@@ -33,7 +27,7 @@ function Navbar() {
                 menuNavigate.map(( {id, path, title} ) => { //Como estamos usando un array de objetos, entonces vamos a tener que desestructurar los datos que estan contenidos en este array. 
                   return (
                     <Link className="dropdown-item" key={id} to={path}>
-                      {title} <hr className="dropdown-divider"/>
+                      {title} 
                     </Link>
                   )
                 })
@@ -80,15 +74,9 @@ function Navbar() {
         
       </ul>
 
-        <div className="me-4">
-          <Link to="/carrito">
-            <Badge badgeContent={totalItems} showZero color="primary">
-              <BsFillCartCheckFill size="30px" />
-            </Badge>
-          </Link>
-        </div>
-
-      
+      <div className="me-4">
+        <CartWidwet/>
+      </div> 
 
     </div>
     </>

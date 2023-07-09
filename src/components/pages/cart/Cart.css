@@ -44,7 +44,7 @@
     height: 100px;
     align-items: center;
     /* border: 1px solid #7F669D; */
-    box-shadow: 0px 2px 5px 0px #7F669D;
+    box-shadow: 0px 2px 5px 0px #3f3737;
     border-radius: 10px;
     padding: 0 10px;
 
@@ -63,9 +63,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #7F669D;
-    
-    
+    color: blanchedalmond;    
+}
+
+.cart-info h2, .cart-info h3, .cart-info h1{
+    color: blanchedalmond;
 }
 
 .cart-item-info > h2{

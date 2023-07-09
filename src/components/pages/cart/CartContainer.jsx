@@ -27,15 +27,27 @@ function CartContainer() {
     })
   }
 
+  function quitar(res){
+    Swal.fire({
+      title: 'Seguro quieres quitar este producto el carrito?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Si, limpiar',
+      denyButtonText: `No, cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeById(res);
+        Swal.fire('Producto eliminado', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Sigue en el carrito', '', 'info')
+      }
+    })
+  }
+
 
   return (
     <div>
-      <Cart
-        total={total}
-        limpiar={limpiar}
-        cart={cart}
-        removeById={removeById}
-      />
+      <Cart total={total} quitar={quitar} limpiar={limpiar} cart={cart} removeById={removeById}/>
     </div>
   )
 }

@@ -1,35 +1,38 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./Cart.css";
-function Cart ({ cart, limpiar, removeById, total }) {
+
+function Cart({ cart, total, quitar, limpiar }) {
   return (
-    <div>
+    <>
       <div className="cart-container">
         <div className="container-items">
           {
-          cart.map((item) => {
-            return (
-              <div key={item.id} className="cart-item">
-                <img src={item.img} alt="" />
-                <div className="cart-item-info">
-                  <h2>{item.name}</h2>
-                  <h2>${item.priceNow}.-</h2>
-                  <h2>Unidades: {item.quantity}</h2>
+            cart.map((item) => {
+              return (
+                <div key={item.id} className="cart-item">
+                  <img src={item.img} alt="" />
+                  <div className="cart-item-info">
+                    <h2>{item.name}</h2>
+                    <h2>${item.priceNow}.-</h2>
+                    <h2>Unidades: {item.quantity}</h2>
+                  </div>
+                  <Button variant="contained" onClick={() => quitar(item.id)}>
+                    Quitar
+                  </Button>
                 </div>
-                <Button variant="contained" onClick={() => removeById(item.id)}>
-                  Quitar
-                </Button>
-              </div>
-            );
-          })}
+              );
+            })
+          }
         </div>
+
+
         <div className="cart-info">
           <h2>Descripcion del carrito:</h2>
           <h3>Cantidad de productos: </h3>
           <h3>Precio total: {total.toFixed(3)}</h3>
           <h3>Descuento: </h3>
           <h3>Precio final: </h3>
-
           {
             cart.length > 0 ? (
               <div className="btn-cart">
@@ -41,16 +44,15 @@ function Cart ({ cart, limpiar, removeById, total }) {
                 </Link>
               </div>
             ) : (
-              <Link to="/">
+              <Link to="/products">
                 <Button variant="contained">Agrega productos</Button>
               </Link>
             )
           }
-
-          <h1>El total del carrito es ${total.toFixed(3)}</h1>
+          <h2>El total del carrito es ${total.toFixed(3)}</h2>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

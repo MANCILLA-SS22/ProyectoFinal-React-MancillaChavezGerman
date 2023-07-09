@@ -17,9 +17,9 @@ export function useCount(initial, stock, minimo) {
             }
         }
 
-        function reset(){
+        /* function reset(){
             setCount(initial)
-        }
+        } */
         
-    return {count, decrement, increment, reset}
+    return {count, decrement, increment}
 }

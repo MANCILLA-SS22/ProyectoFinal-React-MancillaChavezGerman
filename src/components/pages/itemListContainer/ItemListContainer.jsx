@@ -2,7 +2,7 @@
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ScaleLoader } from "react-spinners";
+import { MoonLoader } from "react-spinners";
 import { db } from "../../../firebaseConfig";  
 import {collection, getDocs, query, where } from "firebase/firestore"
 // import AgregarDocs from "../../../AgregarDocs";
@@ -61,8 +61,9 @@ function ItemListContainer(){
         }else{
             consulta = query(itemsCollection, where("category", "==" , categoryName));
         }
-
-        getDocs(consulta)
+        
+        setTimeout(() => {
+            getDocs(consulta)
             .then((res) => {                                  
                 let productos = res.docs.map((evento) => {
                     return {
@@ -73,13 +74,14 @@ function ItemListContainer(){
                 setItems(productos);
             })
             .catch((err) => console.log(err));
+        }, 2000);
     }, [categoryName]);
 
     //condicional con return termprano
     if (items.length === 0) {
         return (
         <div style={{width: "100%",height: "90vh",display: "flex",justifyContent: "center",alignItems: "center"}}>
-            <ScaleLoader color="steelblue" width={40} height={111}  />
+            <MoonLoader color="rgba(0, 255, 240, 1)" width={40} height={111}  />
         </div>
         )
     }
@@ -88,7 +90,7 @@ function ItemListContainer(){
         <div>
             {/* <AgregarDocs/> */}
             {
-                items.length > 0 ? <ItemList Items={items}/> : (<ScaleLoader color="steelblue" width={40} height={111}/>)
+                items.length > 0 ? <ItemList Items={items}/> : (<MoonLoader color="rgba(0, 255, 240, 1)" width={40} height={111}/>)
             }
         </div>
     )

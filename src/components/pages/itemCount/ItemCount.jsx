@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function ItemCount({initial=1, stock, onAdd}) {
-//                                                           1      5
-    const {count, decrement, increment, } = useCount(initial,stock, 1)
+//                                                      1      5
+    const {count, decrement, increment } = useCount(initial,stock, 1);
     const [isAdd, setIsAd] = useState(false);
     const navigate = useNavigate();
 
@@ -27,14 +27,6 @@ export function ItemCount({initial=1, stock, onAdd}) {
                     isAdd ? <button className="btnx btn-light" onClick={ () => {navigate("/cart")}}>Ir al carrito</button> :
                             <button className="btnx btn-light" onClick={ () => {onAdd(count), setIsAd(true)} }>Agregar al carrito</button>
                 }
-
-
-
-                {/* <Button variant="contained" onClick={ () => {onAdd(count), setIsAd(true)} }>
-                    {
-                        isAdd ? "Ir al carrito" : "Agregar al carrito"
-                    }
-                </Button> */}
             </div>
     )
 }
