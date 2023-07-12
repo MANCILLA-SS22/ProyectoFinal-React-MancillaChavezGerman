@@ -17,7 +17,6 @@ function CartWidwet(){
             </Badge>
           </Link>
         </Link>
-        
     </div>
   )
 }

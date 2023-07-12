@@ -12,7 +12,7 @@ function ProductCard({evento}){
                         </div>
 
                         <div className="card_content">
-                            <h1>{evento.title}</h1>
+                            <h1 className="h1_card">{evento.title}</h1>
                             <p className="card_text">{evento.description}</p>
                             
                             <div className="d-flex justify-content-around">

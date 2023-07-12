@@ -3,11 +3,12 @@ import "../navbar/Navbar.css"
 import { Link } from "react-router-dom";
 import { menuNavigate } from "../../../routes/MenuNavigate";
 import CartWidwet from "../../cartWidwet/CartWidwet";
+import LoginIcon from '@mui/icons-material/Login';
 
 function Navbar() {
   return (
     <>
-      <div className='navegacion p-3 container-fluid d-flex justify-content-evenly align-items-center'>
+      <div className='navegacion p-3 container-fluid d-flex justify-content-between align-items-center'>
 
       <a href="/" className='text-white text-decoration-none d-flex justify-content-center'>
         <img style={{width:"60px", marginLeft:"6px"}} src={"/imgs/biohazard-symbol.png"} alt="target" />
@@ -67,9 +68,7 @@ function Navbar() {
         </li>
 
         <li>
-          <a className="text-white text-decoration-none" href="#" role="button"  aria-expanded="false">
-            About us
-          </a>
+          <Link to={"/aboutUs"} className="text-white text-decoration-none" href="#" role="button"  aria-expanded="false">About us</Link>
         </li>
         
       </ul>
@@ -77,6 +76,10 @@ function Navbar() {
       <div className="me-4">
         <CartWidwet/>
       </div> 
+
+      <div>
+        <Link to={"/firebase-auth"}><LoginIcon style={{color:"white", width:"40px", height:"40px"}}/></Link>
+      </div>
 
     </div>
     </>

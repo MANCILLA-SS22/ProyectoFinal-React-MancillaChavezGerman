@@ -6,11 +6,33 @@
     font-family: 'Stardos Stencil', cursive;
 }
 
-body{
+.casa{
     background-color: rgb(105,105,105);
 }
 
 .carrusel{
     width: 100%;
     height: 650px;
+}
+
+.containerX{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+.spa{
+    position: absolute;
+    text-decoration: none;
+}
+
+h3{
+    color: white;
+    text-decoration: none;
 }

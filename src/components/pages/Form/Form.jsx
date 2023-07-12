@@ -6,10 +6,10 @@ function Form() {
     function handleSubmit(evento){ //console.log(evento);
         evento.preventDefault();
         
-        if (!userData.lastName.includes("@") || userData.Name.length < 3) {
+        /* if (!userData.lastName.includes("@") || userData.Name.length < 3) {
             console.log("El campo no es vallido");
             return; //Este return ocaciona que la funcion se corte o ya no se ejecute.
-        }
+        } */
 
         let data = {
             "nombreUsuario": userData.Name,

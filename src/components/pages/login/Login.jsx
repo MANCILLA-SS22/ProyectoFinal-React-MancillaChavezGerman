@@ -7,9 +7,8 @@ export function Login(){
 
     const[showPassword, setShowPassword] = useState(false);
     return (
-        <Box sx={{ width:"100%", gap:"30px", minHeight:"100vh", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }}>
+        <Box sx={{background:"white", width:"100%", gap:"30px", minHeight:"100vh", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }}>
             <TextField id="outlined-basic" label="Email" variant="outlined" color='secondary' size='medium'/>
-            <TextField id="outlined-basic" label="Contraseña" type={showPassword ? "text" : "password"} variant="outlined" color='secondary' size='medium'/>
             
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>

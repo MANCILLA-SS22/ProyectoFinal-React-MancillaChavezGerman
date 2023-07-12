@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom"
 import "./Home.css"
 
 function Home() {
 
   return (
-    <>
+    <div className="casa">
       <div id="carouselExampleIndicators" className="carousel slide">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -35,16 +36,16 @@ function Home() {
         </button>
       </div>
 
-      <div className="container text-center mt-5">
+      <div className="container text-center pt-5 pb-5">
         <div className="row">
-          <div className="col">
-            <img src="/imgs/handguns-1-min.jpg" className="d-block w-100" alt="..."/>
+          <div className="containerX col">
+            <Link to="/category/assault-riffle"><img src="/imgs/handguns-1-min.jpg" className="d-block w-100" alt="..."/></Link>
           </div>
           <div className="col">
-            <img src="/imgs/rifles-1-min.jpg" className="d-block w-100" alt="..."/>
+            <Link to="/category/assault-riffle"><img src="/imgs/rifles-1-min.jpg" className="d-block w-100" alt="..."/></Link>
           </div>
           <div className="col">
-            <img src="/imgs/shotguns-1-min.jpg" className="d-block w-100" alt="..."/>
+            <Link to="/category/shotgun"><img src="/imgs/shotguns-1-min.jpg" className="d-block w-100" alt="..."/></Link>
           </div>
         </div>
         <div className="row mt-4">
@@ -68,7 +69,7 @@ function Home() {
       </div> */}
 
 
-    </>
+    </div>
   )
 }
 

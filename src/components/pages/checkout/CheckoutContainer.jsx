@@ -5,6 +5,7 @@ import { db } from "../../../firebaseConfig"
 import {collection, addDoc, updateDoc, doc} from "firebase/firestore"
 import { useContext, useState } from "react"
 import { CartContext } from "../../../context/CartContext"
+import "./CheckoutContainer.css"
 
 function CheckoutContainer() {
 
@@ -56,7 +57,7 @@ function CheckoutContainer() {
     return (
       <div>
         {
-          orderId ? (<h1>Su compra fue exitosa, el numero de comprovante es: {orderId}</h1>) : (<Checkout handleSubmit={handleSubmit} handleChange={handleChange} errors={errors}/>)
+          orderId ? (<div title="404" className="glitch m-5 text-light"><h2 className="ticket">Su compra fue exitosa, el numero de comprovante es: {orderId}</h2></div>) : (<Checkout handleSubmit={handleSubmit} handleChange={handleChange} errors={errors}/>)
         }
       </div>
     )

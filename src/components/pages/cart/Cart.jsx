@@ -1,19 +1,26 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 
 function Cart({ cart, total, quitar, limpiar }) {
+  const {getTotalItems } = useContext(CartContext);
+  let totalItems = getTotalItems();
+
   return (
     <>
       <div className="cart-container">
+
         <div className="container-items">
           {
             cart.map((item) => {
               return (
-                <div key={item.id} className="cart-item">
+                <>
+                  <div key={item.id} className="cart-item">
                   <img src={item.img} alt="" />
-                  <div className="cart-item-info">
-                    <h2>{item.name}</h2>
+                  <div className="cart-item-info pe-3 ps-3">
+                    <h2>{item.title}</h2>
                     <h2>${item.priceNow}.-</h2>
                     <h2>Unidades: {item.quantity}</h2>
                   </div>
@@ -21,18 +28,15 @@ function Cart({ cart, total, quitar, limpiar }) {
                     Quitar
                   </Button>
                 </div>
+                </>
               );
             })
           }
         </div>
 
-
-        <div className="cart-info">
-          <h2>Descripcion del carrito:</h2>
-          <h3>Cantidad de productos: </h3>
-          <h3>Precio total: {total.toFixed(3)}</h3>
-          <h3>Descuento: </h3>
-          <h3>Precio final: </h3>
+        <div className="cart-info"> 
+          <h3>Cantidad de productos: {totalItems} </h3>
+          <h3>El total del carrito es ${total.toFixed(3)}</h3>         
           {
             cart.length > 0 ? (
               <div className="btn-cart">
@@ -49,8 +53,8 @@ function Cart({ cart, total, quitar, limpiar }) {
               </Link>
             )
           }
-          <h2>El total del carrito es ${total.toFixed(3)}</h2>
         </div>
+        
       </div>
     </>
   );

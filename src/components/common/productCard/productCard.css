@@ -36,7 +36,7 @@ body {
   margin: 0 auto;
 }
 
-h1 {
+.h1_card {
     font-size: 24px;
     font-weight: 400;
     text-align: center;

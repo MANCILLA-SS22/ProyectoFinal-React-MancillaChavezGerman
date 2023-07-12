@@ -24,7 +24,7 @@ export function ItemCount({initial=1, stock, onAdd}) {
                 }
 
                 {
-                    isAdd ? <button className="btnx btn-light" onClick={ () => {navigate("/cart")}}>Ir al carrito</button> :
+                    isAdd ? <button className="btnx btn-light" onClick={ () => {navigate("/carrito")}}>Ir al carrito</button> :
                             <button className="btnx btn-light" onClick={ () => {onAdd(count), setIsAd(true)} }>Agregar al carrito</button>
                 }
             </div>
