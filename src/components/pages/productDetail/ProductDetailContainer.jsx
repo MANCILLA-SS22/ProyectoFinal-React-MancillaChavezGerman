@@ -15,7 +15,7 @@ function ProductDetailContainer(){
   const { num_id } = useParams(); //PARTE 2. Con useParams recuperamos el lo contenido en itemDetail/2. Es decir, el numero 2, que es la parte dinamica. Para despues, desplegar la nueva pagina con los detalles del calzado seleccionado. num_id debe ser el mismo nombre de la ruta en la linea 23 en App.js porque es el nombre del parametro dinamico en el mismo.
   const cantidad = getTotalQuantityById(num_id);
 
-  function onAdd( cantidad ){ //No podemos devolver o mandar una variable desde el hijo al padre, SI podemos ejecutar una funcion que existe en el padre en el hijo, y el hijo a traves de los parametros le hace llegar la informacion al padre. Ejecutamos la funcion onAdd en el hijo, y en el hijo, lo que retornara es el "count" que se encuentra en ItemCount.
+  function onAdd( cantidad ){ //No podemos devolver o mandar una variable desde el hijo al padre, pero SI podemos ejecutar una funcion que existe en el padre en el hijo, y el hijo a traves de los parametros le hace llegar la informacion al padre. Ejecutamos la funcion onAdd en el hijo, y en el hijo, lo que retornara es el "count" que se encuentra en ItemCount.
     let data ={
       ...productSelected,
       quantity: cantidad

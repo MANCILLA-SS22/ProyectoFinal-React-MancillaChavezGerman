@@ -1,6 +1,6 @@
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
 import "./Cart.css";
+// import { button } from "@mui/material";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 
@@ -24,9 +24,9 @@ function Cart({ cart, total, quitar, limpiar }) {
                     <h2>${item.priceNow}.-</h2>
                     <h2>Unidades: {item.quantity}</h2>
                   </div>
-                  <Button variant="contained" onClick={() => quitar(item.id)}>
+                  <button className="btnx"  onClick={() => quitar(item.id)}>
                     Quitar
-                  </Button>
+                  </button>
                 </div>
                 </>
               );
@@ -36,20 +36,19 @@ function Cart({ cart, total, quitar, limpiar }) {
 
         <div className="cart-info"> 
           <h3>Cantidad de productos: {totalItems} </h3>
-          <h3>El total del carrito es ${total.toFixed(3)}</h3>         
+          <h3>El total sin descuento es de ${total.toFixed(3)}</h3>
+          <h3>El total del carrito con el 30% es de: ${total.toFixed(3) - (total.toFixed(3))*0.3}</h3>
           {
             cart.length > 0 ? (
               <div className="btn-cart">
-                <Button onClick={limpiar} variant="contained">
-                  Vaciar carrito
-                </Button>
+                <button className="btnx" onClick={limpiar}>Vaciar carrito</button>
                 <Link to="/checkout">
-                  <Button variant="contained">Finalizar compra</Button>
+                  <button className="btnx">Finalizar compra</button>
                 </Link>
               </div>
             ) : (
               <Link to="/products">
-                <Button variant="contained">Agrega productos</Button>
+                <button className="btnx">Agrega productos</button>
               </Link>
             )
           }

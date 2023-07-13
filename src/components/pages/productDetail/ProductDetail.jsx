@@ -8,7 +8,7 @@ function ProductDetail({productSelected, onAdd, cantidad}){ //console.log(produc
   return (
 
       <>
-        <h1 style={{fontSize:"40px"}} className="text-light pt-5">{productSelected.fullName}</h1>
+        <h1 className="h1_card text-light pt-5">{productSelected.fullName}</h1>
         <div className="container text-center">
 
           <div className="tarjeta row row-cols-2 text-light p-4 m-5 ">

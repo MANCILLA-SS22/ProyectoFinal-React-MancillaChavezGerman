@@ -20,6 +20,13 @@ background: -webkit-linear-gradient(to right, #434343, #000000);
 background: linear-gradient(to right, #434343, #000000); 
 }
 
+.h1_card{
+    font-size: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Stardos Stencil', cursive;
+}
+
 /* .containerItemDetail{
     width: 100%;
     height: 400px;
