@@ -11,7 +11,7 @@ function Navbar() {
       <div className='navegacion p-3 container-fluid d-flex justify-content-between align-items-center'>
 
       <a href="/" className='text-white text-decoration-none d-flex justify-content-center'>
-        <img style={{width:"60px", marginLeft:"6px"}} src={"/imgs/biohazard-symbol.png"} alt="target" />
+        <img style={{width:"60px", marginLeft:"6px"}} src={"https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216579/target_alifk8.png"} alt="target" />
         <h2 className='m-2 align-self-center'>ImpactGuns</h2>
       </a>
 

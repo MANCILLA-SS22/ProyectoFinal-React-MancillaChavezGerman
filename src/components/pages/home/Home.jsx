@@ -14,16 +14,16 @@ function Home() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="/imgs/trust-sig-ammo2-min.jpg" className="carrusel d-block" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216581/trust-sig-ammo2-min_mggybj.jpg" className="carrusel d-block" alt="..."/>
           </div>
           <div className="carousel-item">
-            <img src="/imgs/GrabAGun-Gift-Card-GAG_GiftCert.jpg" className="carrusel d-block" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216591/GrabAGun-Gift-Card-GAG_GiftCert_dbtmi1.png" className="carrusel d-block" alt="..."/>
           </div>
           <div className="carousel-item">
-            <img src="/imgs/July23-Giveaway-Page.jpg" className="carrusel d-block" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216590/July23-Giveaway-Page_v3awfz.png" className="carrusel d-block" alt="..."/>
           </div>
           <div className="carousel-item">
-            <img src="/imgs/1.png" className="carrusel d-block" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216586/1_dppfbz.png" className="carrusel d-block" alt="..."/>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -39,27 +39,27 @@ function Home() {
       <div className="container text-center pt-5 pb-5">
         <div className="row">
           <div className="containerX col">
-            <Link to="/category/assault-riffle"><img src="/imgs/handguns-1-min.jpg" className="d-block w-100" alt="..."/></Link>
+            <img src="/imgs/handguns-1-min.jpg" className="d-block w-100" alt="..."/>
           </div>
           <div className="col">
-            <Link to="/category/assault-riffle"><img src="/imgs/rifles-1-min.jpg" className="d-block w-100" alt="..."/></Link>
+            <Link to="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216579/rifles-1-min_vstxsi.jpg"><img src="/imgs/rifles-1-min.jpg" className="d-block w-100" alt="..."/></Link>
           </div>
           <div className="col">
-            <Link to="/category/shotgun"><img src="/imgs/shotguns-1-min.jpg" className="d-block w-100" alt="..."/></Link>
+            <Link to="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216580/shotguns-1-min_gs17cv.jpg"><img src="/imgs/shotguns-1-min.jpg" className="d-block w-100" alt="..."/></Link>
           </div>
         </div>
         <div className="row mt-4">
           <div className="col">
-            <img src="/imgs/optics-min.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216578/optics-min_cdik1f.jpg" className="d-block w-100" alt="..."/>
           </div>
           <div className="col">
-            <img src="/imgs/gear-min.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216578/gear-min_jlq6yq.jpg" className="d-block w-100" alt="..."/>
           </div>
           <div className="col">
-            <img src="/imgs/accessories-min.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216579/accessories-min_fdfxfg.jpg" className="d-block w-100" alt="..."/>
           </div>
           <div className="col">
-            <img src="/imgs/ammunition-min.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://res.cloudinary.com/dndvrsb0w/image/upload/v1689216581/ammunition-min_e7eze0.jpg" className="d-block w-100" alt="..."/>
           </div>
         </div>
       </div>
